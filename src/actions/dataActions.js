@@ -11,7 +11,7 @@ export const fetchCompany = () => dispatch => {
 
 export const updateData = (companies, filters) => dispatch => {
     const matchPrefix = (prefix, str) => {
-      if(!prefix.match(/^[a-zA-Z]+$/) && !prefix.match(/^[0-9]+$/)) return false
+      if(!prefix.match(/^[a-zA-Z0-9\s]+$/)) return false
       prefix = prefix.toLowerCase()
       str = str.toLowerCase()
 
@@ -39,6 +39,7 @@ export const updateData = (companies, filters) => dispatch => {
     for(let i = 0; i < companies.length; i++) {
       let data = companies[i]
 
+      if(filters.context !== "" && !matchPrefix(filters.context, `${data.title} ${data.abstract}`)) continue
       if(filters.companyid.length !== 0 && filters.companyid.indexOf(data.companyid) === -1) continue
       if(filters.type.length !== 0 && filters.type.indexOf(data.type) === -1) continue
 

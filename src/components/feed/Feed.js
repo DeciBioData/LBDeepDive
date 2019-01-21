@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchCompany } from '../../actions/dataActions'
+import { fetchCompany, updateData } from '../../actions/dataActions'
+import { filterFeedSearch } from '../../actions/filterActions'
 
 import DropdownFilter from './DropdownFilter'
 import FeedCard from './FeedCard'
@@ -12,6 +13,12 @@ class Feed extends Component {
 
 	componentDidMount() {
 		this.props.fetchCompany()
+	}
+
+	handleSearch(e) {
+		e.preventDefault()
+		this.props.filterFeedSearch(e.target.value)
+		this.props.updateData(this.props.companies, this.props.feedFilters)
 	}
 
 	render() {
@@ -43,7 +50,7 @@ class Feed extends Component {
 				    	</li>
 				    </ul>
 				    <form className="form-inline my-2 my-lg-0">
-				      <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+				      <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" onChange={this.handleSearch.bind(this)}/>
 				    </form>
 				</nav>
 				<div className="feedContent row">
@@ -68,10 +75,11 @@ const mapStateToProps = state => ({
 	companies: state.data.companies,
 	processedCompanies: state.data.processedCompanies,
 	onLoad: state.data.onLoad,
+	feedFilters: state.filter.feedFilters,
 	numberOfShowPerPage: state.pagination.numberOfShowPerPage,
 	currentPage: state.pagination.currentPage,
 	lastPage: state.pagination.lastPage
 })
 
-export default connect(mapStateToProps, { fetchCompany })(Feed)
+export default connect(mapStateToProps, { fetchCompany, updateData, filterFeedSearch })(Feed)
 
