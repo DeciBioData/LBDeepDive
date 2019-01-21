@@ -1,0 +1,192 @@
+@font-face {
+    font-family: SofiaProLight;
+    src: url("../font/SofiaProLight.otf") format("opentype");
+}
+
+@font-face {
+    font-family: SofiaProMedium;
+    font-weight: bold;
+    src: url("../font/SofiaProMedium.otf") format("opentype");
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html, body {
+	font-family: SofiaProLight !important;
+	height: 100%;
+	font-size: 14px;
+	background-color: white;
+	color: #4B565F;
+	padding-top: 0;
+}
+
+a {color: #0066CC;}
+a:link {text-decoration: none;}
+a:hover {color: #49896D;}
+
+input {
+  border: none;
+  border-bottom: 1px solid #999;
+  background: transparent;
+  padding:5px;
+  font-family: SofiaProLight;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+}
+input:focus {outline: 0;}
+
+.main {
+	height: auto;
+	overflow-y: auto;
+}
+
+.form-control:focus {
+	border-color: inherit !important;
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;
+	outline: none !important;
+}
+
+.dropdown-toggle::after {
+    display:none;
+}
+
+.logo-img {
+	background: #f3f3f3;
+	border-radius: 10px;	
+}
+/*====================
+	box shadow effect 
+======================*/
+.with-shadow {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.with-shadow-light {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+/*========================
+	Loading spinner
+=======================*/
+.loading-text {
+	text-align: center;
+	color: #0066CC;
+}
+
+.loading-section {
+	margin-top: 20%;
+}
+
+.loading-icon {
+	margin-left: 50%;
+	margin-bottom: 3%;
+}
+
+
+/*==============
+	Buttons
+================*/
+.buttons {
+	color: white;
+	padding: 0.5em 1em 0.5em 1em;
+	border-radius: 20px;
+	cursor: pointer;
+	text-align: left;
+	font-size: 12px;
+	border: none;
+	
+}
+
+.primary-buttons {background: linear-gradient(to right,#42C3C3,#427A9E);}
+.primary-buttons:hover {background: #427A9E;}
+.primary-buttons:active {background: #427A9E;}
+.primary-buttons:focus {outline:0;}
+
+.info-buttons {
+	background: white;
+	border: 1px solid #4B565F;
+	color: #0066CC;
+}
+.info-buttons:hover {
+	color: white;
+	background: #427A9E;
+}
+.info-buttons:active {
+	color: white;
+	background: #427A9E;
+}
+.info-buttons:focus {outline:0;}
+
+.success-buttons {background: linear-gradient(to right,#72C879,#49896D); }
+.success-buttons:hover {background: #49896D;}
+.success-buttons:active {background: #49896D;}
+.success-buttons:focus {outline:0;}
+
+.danger-buttons {background: linear-gradient(to right,#E2985E,#da1b60);}
+.danger-buttons:hover {background: #da1b60;}
+.danger-buttons:active {background: #da1b60;}
+.danger-buttons:focus {outline:0;}
+
+/*===============
+	Heading
+================*/
+.heading {
+	background: #f3f3f3; 
+}
+
+.header-text {
+	padding-top: 0.5%;
+}
+
+/*================
+	Navbar
+=================*/
+.menu {
+	padding: 0.5%;
+	padding-left: 4%;
+	background: #f3f3f3;
+}
+
+.menu a {
+	color: #4B565F;
+	font-weight: bold;
+	font-size: 16px;
+}
+.menu a:hover {text-decoration: underline;}
+
+
+/*=====================
+	Footer
+======================*/
+.footer {
+	background: #f3f3f3;
+	width: 100%;
+	bottom: 0;
+	margin-bottom: 0;
+}
+.footer-text {
+	padding-top: 0%;
+}
+
+/*=================
+	windows resize
+==================*/
+@media only screen and (max-width: 1350px) {
+  .dropdown-buttons {
+  	width: 100%;
+  }
+  .data-table {
+  	max-height: 700px;
+  }
+}
+
+
+
+
