@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux'
-import dataReducers from './dataReducers'
+import dataReducer from './dataReducer'
+import paginationReducer from './paginationReducer'
 
 
 export default combineReducers({
-	data: dataReducers
+	data: dataReducer,
+	pagination: paginationReducer
 })
