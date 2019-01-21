@@ -4,12 +4,27 @@ import { changePageNumber, changeLastPageNumber } from "../../actions/pagination
 
 class Pagination extends Component {
 
+	constructor(props) {
+		super(props)
+		this.state = {
+			currentPage: props.currentPage,
+			lastPage: props.lastPage
+		}
+	}
+
 	componentDidMount() {
 		this.setPage(this.props.dataLength)
 	}
 
 	componentWillReceiveProps(nextProps) {
-		this.setPage(nextProps.dataLength)
+    	//set new max page based on the new dataSets after filtering
+	    let lastPage = Math.ceil(nextProps.dataLength / this.props.numberOfShowPerPage)
+	    if(lastPage <= 0) lastPage = 1
+
+	    let currentPage = nextProps.currentPage
+	    if(currentPage > lastPage) currentPage = lastPage	
+
+	    this.setState({ currentPage, lastPage })	
 	}
 
 	setPage(dataLength) {
@@ -37,7 +52,7 @@ class Pagination extends Component {
 	}
 
 	render() {
-		const { currentPage, lastPage } = this.props
+		const { currentPage, lastPage } = this.state
 		return (
 		    <nav aria-label="Page navigation example">
 		      <div className="page-section">
