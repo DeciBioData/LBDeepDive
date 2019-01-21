@@ -1,5 +1,10 @@
 /* data actions */
 export const FETCH_COMPANY = 'FETCH_COMPANY'
+export const UPDATE_DATA = 'UPDATE_DATA'
+
+//Filter Actions
+export const FILTER_FEED_DROPDOWN = 'FILTER_FEED_DROPDOWN'
+export const CLEAR_FEED_DROPDOWN = 'CLEAR_FEED_DROPDOWN'
 
 /* pagination actions */
 export const CHANGE_PAGE_NUMBER = 'CHANGE_PAGE_NUMBER'

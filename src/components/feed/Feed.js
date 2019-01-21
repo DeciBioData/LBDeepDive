@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchCompany } from '../../actions/dataActions'
 
+import DropdownFilter from './DropdownFilter'
 import FeedCard from './FeedCard'
 import FeedSummary from './FeedSummary'
 import Pagination from '../pagination/Pagination'
@@ -14,7 +15,6 @@ class Feed extends Component {
 	}
 
 	render() {
-
 		let endEntry = this.props.currentPage * this.props.numberOfShowPerPage
   		let startEntry = endEntry - this.props.numberOfShowPerPage
   		let partialData = this.props.processedCompanies.slice(startEntry, endEntry)
@@ -25,26 +25,10 @@ class Feed extends Component {
 				<nav className="navbar navbar-expand-lg navbar-light bg-light with-shadow feedFilters">
 				    <ul className="navbar-nav mr-auto">
 				    	<li className="nav-item dropdown">
-					    	<a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					        	Company
-					        </a>
-					        <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-					        	<a className="dropdown-item" href="#">Action</a>
-					        	<a className="dropdown-item" href="#">Another action</a>
-					        	<div className="dropdown-divider"></div>
-					        	<a className="dropdown-item" href="#">Something else here</a>
-					        </div>
+					        <DropdownFilter name="Company" data={this.props.processedCompanies} type="companyid"/>
 				    	</li>
 				    	<li className="nav-item dropdown">
-					    	<a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					        	News Type
-					        </a>
-					        <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-					        	<a className="dropdown-item" href="#">Action</a>
-					        	<a className="dropdown-item" href="#">Another action</a>
-					        	<div className="dropdown-divider"></div>
-					        	<a className="dropdown-item" href="#">Something else here</a>
-					        </div>
+					        <DropdownFilter name="News Type" data={this.props.processedCompanies} type="type"/>
 				    	</li>
 				    	<li className="nav-item dropdown">
 					    	<a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

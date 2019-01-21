@@ -11,7 +11,9 @@ class App extends Component {
       <Provider store={store}>
       	<div>
       		<Header/>
-      		<Feed />
+          <div className="fixHeight">
+      		  <Feed />
+          </div>
       	</div>
       </Provider>
     )
