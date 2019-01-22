@@ -62,6 +62,24 @@
 	text-align: center;
 }
 
+.feedSummary-title {
+	margin: 5%;
+	margin-top: 10%;
+	font-size: 18px;
+}
+
+.feedSummary-types {
+	margin-left: 5%;
+}
+
+.feedSummary-types ul{
+	list-style: none;
+}
+
+.feedSummary-companyLogos ul li {
+	display: inline;
+	margin: 3%;
+}
 
 
 

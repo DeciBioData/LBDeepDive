@@ -22,7 +22,6 @@ class DateFilter extends Component {
     this.setState({
       startDate: date
     })
-    this.setAndUpdateData()
     this.props.filterFeedDate([date, this.state.endDate])
     this.props.updateData(this.props.companies, this.props.feedFilters)    
   }
@@ -79,7 +78,8 @@ class DateFilter extends Component {
                         shouldCloseOnSelect={false}
                         placeholderText="End Date"
                     />
-                </div>                    
+                </div>
+                <button className="buttons info-buttons" onClick={this.toggleDatePicker.bind(this)}>Close</button>            
               </PopoverBody>
             </Popover> 
         </div>

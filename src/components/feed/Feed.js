@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchCompany, updateData } from '../../actions/dataActions'
 import { filterFeedSearch } from '../../actions/filterActions'
+import { getLastestTrending } from '../../actions/otherActions'
 
 import DropdownFilter from './DropdownFilter'
 import DateFilter from './DateFilter'
@@ -56,7 +57,7 @@ class Feed extends Component {
 						<Pagination />
 					</div>
 					<div className="feedSummary with-shadow col-4 col-md-4 col-sm-4">
-						Summary
+						<FeedSummary data={this.props.processedCompanies}/>
 					</div>
 				</div>
 			</div>
@@ -74,5 +75,5 @@ const mapStateToProps = state => ({
 	lastPage: state.pagination.lastPage
 })
 
-export default connect(mapStateToProps, { fetchCompany, updateData, filterFeedSearch })(Feed)
+export default connect(mapStateToProps, { fetchCompany, updateData, filterFeedSearch, getLastestTrending })(Feed)
 
