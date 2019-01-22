@@ -5,6 +5,7 @@ export const UPDATE_DATA = 'UPDATE_DATA'
 //Filter Actions
 export const FILTER_FEED_SEARCH = 'FILTER_FEED_SEARCH'
 export const FILTER_FEED_DROPDOWN = 'FILTER_FEED_DROPDOWN'
+export const FILTER_FEED_DATE = 'FILTER_FEED_DATE'
 export const CLEAR_FEED_DROPDOWN = 'CLEAR_FEED_DROPDOWN'
 
 /* pagination actions */

@@ -1,11 +1,12 @@
 /* eslint-disable */
-import { FILTER_FEED_SEARCH, FILTER_FEED_DROPDOWN, CLEAR_FEED_DROPDOWN } from '../actions/types'
+import { FILTER_FEED_SEARCH, FILTER_FEED_DROPDOWN, FILTER_FEED_DATE, CLEAR_FEED_DROPDOWN } from '../actions/types'
 
 const initialState = {
 	feedFilters: {
 		context: "",
 	    companyid: [],
-	    type: []
+	    type: [],
+	    date: [null, new Date()]
 	}
 }
 
@@ -28,6 +29,14 @@ export default function(state = initialState, action) {
 				...state,
 				feedFilters: state.feedFilters
 			}
+			break
+
+		case FILTER_FEED_DATE:
+			state.feedFilters.date = action.payload
+			return {
+				...state,
+				feedFilters: state.feedFilters
+			} 
 			break
 		case CLEAR_FEED_DROPDOWN:
 			state.feedFilters[action.payload] = []

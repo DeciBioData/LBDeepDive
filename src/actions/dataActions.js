@@ -3,10 +3,23 @@ import { FETCH_COMPANY, UPDATE_DATA } from './types'
 export const fetchCompany = () => dispatch => {
 	fetch('https://sheetlabs.com/DECI/lbnews')
 		.then(response => response.json())
-		.then(companies => dispatch({
-			type: FETCH_COMPANY,
-			payload: companies
-		}))
+		.then(companies => {
+        let companyData = companies.map((dataSet) => ({
+          "newsid": dataSet["newsid"],
+          "uuid": dataSet["uuid"],
+          "companyid": dataSet["companyid"],
+          "title": dataSet["title"],
+          "abstract": dataSet["abstract"],
+          "date": new Date(dataSet["date"]),
+          "type": dataSet["type"],
+          "link": dataSet["link"],
+          "logourl": dataSet["logourl"]
+        })) || []
+
+        return dispatch({
+          type: FETCH_COMPANY,
+          payload: companyData
+        })})
 }
 
 export const updateData = (companies, filters) => dispatch => {

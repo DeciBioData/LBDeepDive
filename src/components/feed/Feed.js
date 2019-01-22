@@ -4,6 +4,7 @@ import { fetchCompany, updateData } from '../../actions/dataActions'
 import { filterFeedSearch } from '../../actions/filterActions'
 
 import DropdownFilter from './DropdownFilter'
+import DateFilter from './DateFilter'
 import FeedCard from './FeedCard'
 import FeedSummary from './FeedSummary'
 import Pagination from '../pagination/Pagination'
@@ -37,16 +38,8 @@ class Feed extends Component {
 				    	<li className="nav-item dropdown">
 					        <DropdownFilter name="News Type" data={this.props.processedCompanies} type="type"/>
 				    	</li>
-				    	<li className="nav-item dropdown">
-					    	<a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					        	Date
-					        </a>
-					        <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-					        	<a className="dropdown-item" href="#">Action</a>
-					        	<a className="dropdown-item" href="#">Another action</a>
-					        	<div className="dropdown-divider"></div>
-					        	<a className="dropdown-item" href="#">Something else here</a>
-					        </div>
+				    	<li className="nav-item dropdown date-selector">
+				    		<DateFilter name="Date" date={this.props.processedCompanies.date}/>
 				    	</li>
 				    </ul>
 				    <form className="form-inline my-2 my-lg-0">
