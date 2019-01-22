@@ -181,6 +181,7 @@ export const updateCompanyData = (companies, filters) => dispatch => {
       if(filters.description !== "" && !matchPrefix(filters.description, data.description)) continue
       if(filters.employeeCount.length !== 0 && filters.employeeCount.indexOf(data.employeeCount) === -1) continue
       if(filters.category.length !== 0 && !includeInArray(filters.category, data.categories.split(','))) continue
+      if(filters.diseases.length !== 0 && !includeInArray(filters.diseases, data.diseases.split(','))) continue
       if(filters.country.length !== 0 && !includeInArray(filters.country, data.country.split(','))) continue
       if(filters.status.length !== 0 && !includeInArray(filters.status, data.status.split(','))) continue
       if(filters.totalFunding[0] > parseInt(data.totalFunding) || filters.totalFunding[1] < parseInt(data.totalFunding)) continue

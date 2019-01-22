@@ -13,6 +13,7 @@ class TableInfo extends Component {
 			category: props.filters.category.length === 0 ? null : props.filters.category,
 			country: props.filters.country.length === 0 ? null : props.filters.country,
 			status: props.filters.status.length === 0 ? null : props.filters.status,
+			diseases: props.filters.diseases.length === 0 ? null : props.filters.diseases,
 			totalFunding: props.filters.totalFunding[0] === 0 && props.filters.totalFunding[1] === 3000000000 ? null : props.filters.totalFunding,
 			rounds: props.filters.rounds[0] === 0 && props.filters.rounds[1] === 20 ? null : props.filters.rounds,
 			reportedValuation: props.filters.reportedValuation[0] === 0 && props.filters.reportedValuation[1] === 10000000000 ? null : props.filters.reportedValuation,
@@ -28,6 +29,7 @@ class TableInfo extends Component {
 			category: filters.category.length === 0 ? null : filters.category,
 			country: filters.country.length === 0 ? null : filters.country,
 			status: filters.status.length === 0 ? null : filters.status,
+			diseases: filters.diseases.length === 0 ? null : filters.diseases,
 			totalFunding: filters.totalFunding[0] === 0 && filters.totalFunding[1] === 3000000000 ? null : filters.totalFunding,
 			rounds: filters.rounds[0] === 0 && filters.rounds[1] === 20 ? null : filters.rounds,
 			reportedValuation: filters.reportedValuation[0] === 0 && filters.reportedValuation[1] === 10000000000 ? null : filters.reportedValuation,
@@ -37,7 +39,7 @@ class TableInfo extends Component {
 	}
 
 	clearFilters(name, type, content) {
-		const dropdownList = ["Employee Count", "Category", "Country", "Status", "Region"]
+		const dropdownList = ["Employee Count", "Category", "Country", "Status", "Diseases"]
 		const sliderList = ["Total Funding", "Rounds", "Reported Valuation", "Year Founded", "Publication"]
 
 		if(dropdownList.indexOf(name) !== -1) {
@@ -69,7 +71,7 @@ class TableInfo extends Component {
 	}
 
 	render() {
-		const { employeeCount, category, country, status, region, totalFunding, rounds, reportedValuation, yearFounded, publicationCount } = this.state
+		const { employeeCount, category, country, status, diseases, totalFunding, rounds, reportedValuation, yearFounded, publicationCount } = this.state
 		const showItems = []
 
 		if(employeeCount) {
@@ -92,6 +94,12 @@ class TableInfo extends Component {
 		if(status) {
 			status.forEach((data) => {
 				showItems.push({ name: "Status", type:"status" ,content: data })
+			})
+		}
+
+		if(diseases) {
+			diseases.forEach((data) => {
+				showItems.push({ name: "Diseases", type:"diseases" ,content: data })
 			})
 		}
 

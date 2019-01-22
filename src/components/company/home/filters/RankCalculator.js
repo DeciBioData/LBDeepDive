@@ -22,6 +22,7 @@ class RankCalculator extends Component {
 			 		<RankCalculatorInput name="Team Rank:" type="teamRank" value={rankWeights.teamRank}/>
 			 		<RankCalculatorInput name="Employee Count:" type="employeeCount" value={rankWeights.employeeCount}/>
 			 		<RankCalculatorInput name="Publication Count:" type="publicationCount" value={rankWeights.publicationCount}/>
+			 		<RankCalculatorInput name="Products Count:" type="products" value={rankWeights.products}/>
 				</form>					
 			 	<span>Funding Metrics</span>
 			 	<hr />

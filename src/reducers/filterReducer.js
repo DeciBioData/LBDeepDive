@@ -18,6 +18,7 @@ const initialState = {
 	    category: [],
 	    country: [],
 	    status: [],
+	    diseases:[],
 	    totalFunding: [0, 3000000000],
 	    rounds: [0, 20],
 	    reportedValuation: [0, 10000000000],

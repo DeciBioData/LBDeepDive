@@ -17,6 +17,7 @@ class Filter extends Component {
 		super(props)
 		this.tableList = "(All),Rank,Company Name,Description,Founded,Employee Count,Last Funding,Category,Country,Region,Status,Rounds,Total Funding,Reported Valuation,Publication Count,Investor Count,Rank Score"
 		this.categoryList = "(All),Screening,Early Detection,Monitoring,Tx Selection,Risk Assessment,Diagnosis,Translational Research"
+		this.diseaseList = "(All),Lung,Breast,Prostate,Colorectal,Leukemia/Lymphoma,Gastric,Melanoma,Pan-Cancer,Others/NA"
 		this.countryList= "(All),United States of America,Canada,United Kingdom,India,Netherlands,Spain,Israel,Germany,Ireland,Belize,Australia,China,Italy,Lithuania,Portugal,Turkey,Belgium,Switzerland,France,Bulgaria,Poland,Austria,Sweden,Finland,Singapore,Sudan,Korea (Republic of),Mexico,Malaysia,South Africa,Japan,Latvia,Luxembourg,Colombia,Greece,Uruguay,United Arab Emirates,Brazil,Hong Kong,Myanmar,Slovakia,Saudi Arabia,Chile,Hungary,Iceland,Russian Federation,Norway,Algeria,Slovenia,Argentina,Croatia,Ghana,New Zealand,Bangladesh,Taiwan,Indonesia,Rwanda,Czechia,Thailand,Viet Nam,Ukraine,Bermuda,Trinidad and Tobago,Jordan,Kazakhstan,Kenya,Lebanon,Kuwait,Estonia,Nigeria,Morocco,Cyprus,Iran (Islamic Republic of),Costa Rica,Uganda,Pakistan,Philippines,Qatar,Seychelles,Egypt,Panama,Nepal,Jamaica,Côte d'Ivoire,Zambia,Botswana,Mauritius,Peru,Angola,Tunisia,Malta,Ethiopia,Liechtenstein,Namibia,El Salvador,Sri Lanka,Puerto Rico,Ecuador,Cayman Islands,Cameroon,Belarus,Yemen,Senegal,Bolivia (Plurinational State of),Georgia,Gibraltar,Venezuela (Bolivarian Republic of),Paraguay,Armenia,Macedonia (the former Yugoslav Republic of),Saint Kitts and Nevis,Lesotho,Jersey,Honduras,Oman,Barbados,Grenada,Serbia,Cuba,Congo (Democratic Republic of the),Albania,Isle of Man,Togo,Zimbabwe,Cambodia,Bahrain,Afghanistan,Burkina Faso,Guatemala,Andorra,Azerbaijan,Madagascar,Denmark,Other/NA"
 		this.statusList= "(All),operating,acquired,ipo,closed,Other/NA"
 		this.tableList = "(All),Rank,Company Name,Description,Founded,Employee Count,Last Funding,Category,Country,Region,Status,Rounds,Total Funding,Reported Valuation,Publication Count,Investor Count,Rank Score"
@@ -88,6 +89,12 @@ class Filter extends Component {
 					<FilterInstruction name="Category Tags" type="Tags" content="Filter down companies by selecting one or more category tags. Use the search bar to look up relevant tags"/>
 					<DropdownOptions 
 						name="Tags" type="category" list={this.categoryList.split(',')} updateData={this.updateData.bind(this)}
+						handleDropdownOptions={this.handleDropdownOptions.bind(this)} clearDropdownOptions={this.clearDropdownOptions.bind(this)}/>
+				</div>
+				<div className="category-filter">
+					<FilterInstruction name="Disease Types" type="Diseases" content='Filter down diseases by selecting one or more disease tags. Use the search bar to look up relevant tags'/>
+					<DropdownOptions 
+						name="Diseases" type="diseases" list={this.diseaseList.split(',')} updateData={this.updateData.bind(this)}
 						handleDropdownOptions={this.handleDropdownOptions.bind(this)} clearDropdownOptions={this.clearDropdownOptions.bind(this)}/>
 				</div>
 				<div className="category-filter">
