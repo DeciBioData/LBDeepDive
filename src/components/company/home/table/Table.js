@@ -12,7 +12,7 @@ class Table extends Component {
 		let endEntry = this.props.currentPage * this.props.numberOfShowPerPage
   		let startEntry = endEntry - this.props.numberOfShowPerPage
   		let partialData = sortedData.slice(startEntry, endEntry)
-  		
+
 		return(
 			<div className="table-responsive">
 				<table className="table table-sm" id="tableData">
@@ -42,7 +42,7 @@ class Table extends Component {
 				    			return (
 							    	<tr key={index}>
 							    		{table.has("Rank") ? <th className="text-left">{data.rank}</th> : null}
-							    		{table.has('Company Name') ? <td className="text-left"><a href={`/company/${data.uuid}`} target="_blank" rel="noopener noreferrer" className="companyName">{data.name}</a></td> : null}
+							    		{table.has('Company Name') ? <td className="text-left"><a href={`/company/info/${data.uuid}`} target="_blank" rel="noopener noreferrer" className="companyName">{data.name}</a></td> : null}
 										{table.has('Country') ? <td className="text-left">{data.country}</td> : null}
 							    		{table.has('Founded') ? <td className="text-left">{data.yearOfFound == null ? 'unknown' : data.yearOfFound}</td> : null}
 							    		

@@ -6,7 +6,8 @@ import store from './store'
 import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
 import Feed from './components/feed/Feed'
-import Company from './components/company/Company'
+import Company from './components/company/home/Home'
+import CompanyPage from './components/company/individual/Individual'
 import Product from './components/product/Product'
 
 class App extends Component {
@@ -17,9 +18,12 @@ class App extends Component {
       		<Header/>
                 <Router>
                     <div className="fixHeight">
-                        <Route exact path="/" component={Feed}/>
-                        <Route exact path="/company" component={Company}/>
-                        <Route exact path="/product" component={Product}/>
+                        <Switch>
+                            <Route exact path="/" component={Feed}/>
+                            <Route exact path="/company" component={Company}/>
+                            <Route exact path="/company/info/:id" component={CompanyPage} />
+                            <Route exact path="/product" component={Product}/>
+                        </Switch>
                     </div>
                 </Router>
             <Footer/>
