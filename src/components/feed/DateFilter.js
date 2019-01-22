@@ -12,15 +12,10 @@ class DateFilter extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      startDate: new Date('1970-7-1'),
+      startDate: new Date('2010-1-1'),
       endDate: new Date(),
       openDatePickers: false
     }
-  }
-
-  setAndUpdateData() {
-    this.props.filterFeedDate([this.state.startDate, this.state.endDate])
-    this.props.updateData(this.props.companies, this.props.feedFilters)
   }
  
   handleChangeStart(date) {
@@ -28,13 +23,16 @@ class DateFilter extends Component {
       startDate: date
     })
     this.setAndUpdateData()
+    this.props.filterFeedDate([date, this.state.endDate])
+    this.props.updateData(this.props.companies, this.props.feedFilters)    
   }
 
   handleChangeEnd(date) {
     this.setState({
         endDate: date
     })
-    this.setAndUpdateData()
+    this.props.filterFeedDate([this.state.startDate, date])
+    this.props.updateData(this.props.companies, this.props.feedFilters) 
   }
 
   toggleDatePicker() {
