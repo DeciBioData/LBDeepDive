@@ -41,6 +41,12 @@
 	margin-right: 5%;
 }
 
+.feedCards {
+	max-height: 700px;
+	overflow: auto;
+	margin-bottom: 1%;
+}
+
 .feedCards .card{
 	margin-bottom: 3%;
 }

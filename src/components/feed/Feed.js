@@ -8,7 +8,6 @@ import DropdownFilter from './DropdownFilter'
 import DateFilter from './DateFilter'
 import FeedCard from './FeedCard'
 import FeedSummary from './FeedSummary'
-import Pagination from '../pagination/Pagination'
 import LoadingSpinner from '../others/LoadingSpinner'
 
 class Feed extends Component {
@@ -24,9 +23,6 @@ class Feed extends Component {
 	}
 
 	render() {
-		let endEntry = this.props.currentPage * this.props.numberOfShowPerPage
-  		let startEntry = endEntry - this.props.numberOfShowPerPage
-  		let partialData = this.props.processedCompanies.slice(startEntry, endEntry)
 
 		if(this.props.onLoad) return <div className="spinner"><LoadingSpinner /></div>
 		return (
@@ -50,11 +46,10 @@ class Feed extends Component {
 				<div className="feedContent row">
 					<div className="feedCards col-7 col-md-7 col-sm-7">
 						{
-							partialData.map((company, index) => {
+							this.props.processedCompanies.map((company, index) => {
 								return (<div key={index}><FeedCard companyInfo={company}/></div>)
 							})
 						}
-						<Pagination />
 					</div>
 					<div className="feedSummary with-shadow col-4 col-md-4 col-sm-4">
 						<FeedSummary data={this.props.processedCompanies}/>
@@ -69,10 +64,7 @@ const mapStateToProps = state => ({
 	companies: state.data.companies,
 	processedCompanies: state.data.processedCompanies,
 	onLoad: state.data.onLoad,
-	feedFilters: state.filter.feedFilters,
-	numberOfShowPerPage: state.pagination.numberOfShowPerPage,
-	currentPage: state.pagination.currentPage,
-	lastPage: state.pagination.lastPage
+	feedFilters: state.filter.feedFilters
 })
 
 export default connect(mapStateToProps, { fetchCompany, updateData, filterFeedSearch, getLastestTrending })(Feed)
