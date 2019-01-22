@@ -37,14 +37,12 @@ class Company extends Component {
 					</div>
 					<div className="col-md-9 mainInfo-section">
 						<div className="companyInfo-section">
-							<Router>
-								<Switch>
-										<Route exact path={`${this.props.match.url}`} render={(props) => <Description companyInfo={companyInfo} {...props}/>}/>
-										<Route exact path={`${this.props.match.url}/funding`} render={(props) => <Funding companyInfo={companyInfo} {...props}/>}/>
-										<Route exact path={`${this.props.match.url}/team`} render={(props) => <Team companyInfo={companyInfo} {...props}/>}/>
-										<Route exact path={`${this.props.match.url}/publication`} render={(props) => <Publication companyInfo={companyInfo} {...props}/>}/>	
-								</Switch>
-							</Router>
+							<Switch>
+									<Route exact path={`${this.props.match.url}`} render={(props) => <Description companyInfo={companyInfo} {...props}/>}/>
+									<Route exact path={`${this.props.match.url}/funding`} render={(props) => <Funding companyInfo={companyInfo} {...props}/>}/>
+									<Route exact path={`${this.props.match.url}/team`} render={(props) => <Team companyInfo={companyInfo} {...props}/>}/>
+									<Route exact path={`${this.props.match.url}/publication`} render={(props) => <Publication companyInfo={companyInfo} {...props}/>}/>	
+							</Switch>
 						</div>
 					</div>
 				</div>
