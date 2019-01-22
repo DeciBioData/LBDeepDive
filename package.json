@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "chart.js": "^2.7.3",
+    "file-saver": "^2.0.0",
     "nouislider-react": "^2.1.1",
     "react": "^16.7.0",
     "react-chartjs-2": "^2.7.4",
@@ -15,7 +16,8 @@
     "react-spinkit": "^3.0.0",
     "reactstrap": "^7.1.0",
     "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "xlsx": "^0.14.1"
   },
   "scripts": {
     "start": "react-scripts start",

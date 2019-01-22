@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { updateData } from '../../actions/dataActions'
+import { updateFeedData } from '../../actions/dataActions'
 import { filterFeedDropdown, clearFeedDropdown } from '../../actions/filterActions'
 
 class DropdownFilter extends Component {
@@ -38,7 +38,7 @@ class DropdownFilter extends Component {
 
 	handleItem(item) {
 		this.props.filterFeedDropdown(this.type, item)  
-		this.props.updateData(this.props.companies, this.props.feedFilters)	
+		this.props.updateFeedData(this.props.companies, this.props.feedFilters)	
 	}
 
 	selectAll() {
@@ -47,7 +47,7 @@ class DropdownFilter extends Component {
 	      inputs[i].checked = false;
 	    }
 	    this.props.clearFeedDropdown(this.type)
-	    this.props.updateData(this.props.companies, this.props.feedFilters) 
+	    this.props.updateFeedData(this.props.companies, this.props.feedFilters) 
 	}
 
 	render() {
@@ -79,9 +79,9 @@ class DropdownFilter extends Component {
 }
 
 const mapStateToProps = state => ({
-	companies: state.data.companies,
+	companies: state.data.feed_companies,
 	feedFilters: state.filter.feedFilters
 })
 
-export default connect(mapStateToProps, { updateData, filterFeedDropdown, clearFeedDropdown })(DropdownFilter)
+export default connect(mapStateToProps, { updateFeedData, filterFeedDropdown, clearFeedDropdown })(DropdownFilter)
 

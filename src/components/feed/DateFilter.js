@@ -4,7 +4,7 @@ import DatePicker from "react-datepicker"
 import { Popover, PopoverHeader, PopoverBody } from 'reactstrap'
 import "react-datepicker/dist/react-datepicker.css"
 
-import { updateData } from "../../actions/dataActions"
+import { updateFeedData } from "../../actions/dataActions"
 import { filterFeedDate } from "../../actions/filterActions"
  
  
@@ -23,7 +23,7 @@ class DateFilter extends Component {
       startDate: date
     })
     this.props.filterFeedDate([date, this.state.endDate])
-    this.props.updateData(this.props.companies, this.props.feedFilters)    
+    this.props.updateFeedData(this.props.companies, this.props.feedFilters)    
   }
 
   handleChangeEnd(date) {
@@ -31,7 +31,7 @@ class DateFilter extends Component {
         endDate: date
     })
     this.props.filterFeedDate([this.state.startDate, date])
-    this.props.updateData(this.props.companies, this.props.feedFilters) 
+    this.props.updateFeedData(this.props.companies, this.props.feedFilters) 
   }
 
   toggleDatePicker() {
@@ -88,11 +88,11 @@ class DateFilter extends Component {
 }
 
 const mapStateToProps = state => ({
-    companies: state.data.companies,
+    companies: state.data.feed_companies,
     feedFilters: state.filter.feedFilters,
     date: state.filter.feedFilters.date
 })
 
-export default connect(mapStateToProps, { updateData, filterFeedDate })(DateFilter)
+export default connect(mapStateToProps, { updateFeedData, filterFeedDate })(DateFilter)
 
 

@@ -2,7 +2,7 @@
 import { CHANGE_PAGE_NUMBER, CHANGE_LAST_PAGE_NUMBER} from '../actions/types'
 
 const initialState = {
-	numberOfShowPerPage: 2,
+	numberOfShowPerPage: 50,
 	currentPage: 1,
 	lastPage: 1
 }

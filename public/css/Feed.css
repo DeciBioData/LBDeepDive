@@ -33,10 +33,15 @@
 
 .feedContent {
 	padding-left: 2%;
+	max-height: 600px;
+	overflow: auto;
+	margin-bottom: 1%;
 }
 
 .feedSummary {
 	width: auto;
+	height:auto;
+	overflow: auto;
 	border-radius: 10px;
 	margin-right: 5%;
 }

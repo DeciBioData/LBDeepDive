@@ -25,9 +25,6 @@ class Header extends Component {
 				  	<div className="mr-auto align-items-center header-text">
 						<h5><strong>DeciBio BioTrack</strong> | Liquid Biopsy</h5>
 					</div>
-					<span className="navbar-brand">
-				    <img src="/logos/Roche_Logo.svg.png" width="75" className="d-inline-block align-top logo-img"/>
-				  </span>
 				  	<div>
 				  		<SignOutButton signOut={this.signOut.bind(this)}/>
 				  	</div>

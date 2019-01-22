@@ -1,0 +1,205 @@
+/*===============
+	Side Nav
+================*/
+.side-section {
+	max-height: 650px;
+	overflow: auto;
+}
+
+.side-nav {
+	margin-top: 5%;
+	font-size: 14px;
+	background: white;
+	border: 0.5px solid rgb(224, 224, 224);
+}
+
+.company-count {
+	color: #0066CC;
+	font-weight: bold;
+	text-align: left;
+	margin-top: 5%;
+}
+
+.company-count h6 {
+	font-size: 24px;
+}
+
+.company-count, .company-search, .filter-slider, .category-filter, .employee-count, .rank-calculator {
+	padding-top: 5% ;
+	padding-left: 5% ;
+	padding-right: 5% ;
+	padding-bottom: 3% ;
+}
+
+.search-companyInput {
+	margin-left: 2%;
+	margin: auto;
+}
+
+/*==================
+	Sliders
+===================*/
+.sliderLabel {
+	margin-bottom: 3%;
+	display: block;
+}
+
+.sliders {
+	width: 100%;
+	margin-top: 5%;
+	padding-left: 15%;
+}
+
+.sliderInputs {
+	width: 100%;
+}
+
+.slider-buttons {
+	margin-bottom: 3%;
+}
+
+.noUi-connect {
+	height: 5px !important;
+    background: #d3d3d3 !important;
+}
+
+.noUi-horizontal {
+	height: 5px !important;
+}
+
+.noUi-horizontal .noUi-handle, .noUi-vertical .noUi-handle {
+    width: 15px !important;
+    height: 15px !important;
+    box-shadow: none !important;
+    cursor: pointer;    
+}
+
+.noUi-horizontal .noUi-handle:focus, .noUi-vertical .noUi-handle:focus {
+    outline: 0;
+}
+
+.noUi-horizontal .noUi-handle::before, .noUi-horizontal .noUi-handle::after {
+    display: none;
+}
+
+.sliderInputs-Section{
+	width: 100%;
+	padding: 5%;
+	margin-bottom: 3%;
+}
+
+.rankCalculatorButton {
+	width: 100%;
+	margin-bottom: 3%;
+}
+
+/*===============
+	Table
+================*/
+.table-heading {
+	background-color: #f3f3f3;
+	color: black;
+}
+
+.table {
+	background: white;
+	overflow: hidden !important;
+}
+
+#tableData th, #tableData td {
+	max-width: 100px !important;
+	overflow: auto !important;
+}
+
+.data-table {
+	max-height: 650px;
+	overflow: auto;
+	margin-bottom: 1%;	
+}
+
+.companyName {
+	color: #0066CC;
+	font-weight: 600;
+}
+
+/*===============
+	Filter Tags
+===============*/
+.tags-section {
+	margin: 1%;
+	width: 100%;
+	background-color: #CEE8F2;
+}
+
+.tags-list {
+	list-style-type: none;
+}
+
+.filterTags {
+	float: left;
+	margin: 0.5em;
+}
+
+.filterTags span {
+	display: block;
+}
+
+/*==============
+	Customize 
+===============*/
+.customize-h1 {
+	font-family: SofiaProMedium !important;
+	font-size: 58px;
+}
+
+.customize-h2 {
+	font-family: SofiaProMedium !important;
+	font-size: 48px;
+}
+
+.customize-h3 {
+	font-family: SofiaProMedium !important;
+	font-size: 28px;
+}
+
+.additional-text {
+	font-size: 14px;
+}
+
+.popover-buttons {
+	color: #4B565F;
+}
+
+.logo-img {
+	background: #f3f3f3;
+	border-radius: 10px;	
+}
+
+/*===================
+	Others
+===================*/
+.calculatorInput {
+	margin-left: 1%;
+}
+
+.modal-header-text {
+	font-size: 14px;
+	margin: 0;
+}
+
+.rank-calculator-type-heading {
+	text-align: center;
+	margin-top: 1%;
+}
+
+.hidden {
+	display: none;
+}
+
+.export-button {
+	float: right;
+	margin-right: 1%;
+}
+
+
+

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchCompany, updateData } from '../../actions/dataActions'
+import { fetchFeedCompany, updateFeedData } from '../../actions/dataActions'
 import { filterFeedSearch } from '../../actions/filterActions'
 import { getLastestTrending } from '../../actions/otherActions'
 
@@ -13,13 +13,13 @@ import LoadingSpinner from '../others/LoadingSpinner'
 class Feed extends Component {
 
 	componentDidMount() {
-		this.props.fetchCompany()
+		this.props.fetchFeedCompany()
 	}
 
 	handleSearch(e) {
 		e.preventDefault()
 		this.props.filterFeedSearch(e.target.value)
-		this.props.updateData(this.props.companies, this.props.feedFilters)
+		this.props.updateFeedData(this.props.companies, this.props.feedFilters)
 	}
 
 	render() {
@@ -61,11 +61,11 @@ class Feed extends Component {
 }
 
 const mapStateToProps = state => ({
-	companies: state.data.companies,
-	processedCompanies: state.data.processedCompanies,
-	onLoad: state.data.onLoad,
+	companies: state.data.feed_companies,
+	processedCompanies: state.data.feed_processedCompanies,
+	onLoad: state.data.feed_onLoad,
 	feedFilters: state.filter.feedFilters
 })
 
-export default connect(mapStateToProps, { fetchCompany, updateData, filterFeedSearch, getLastestTrending })(Feed)
+export default connect(mapStateToProps, { fetchFeedCompany, updateFeedData, filterFeedSearch, getLastestTrending })(Feed)
 
