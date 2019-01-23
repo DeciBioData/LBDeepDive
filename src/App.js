@@ -25,7 +25,7 @@ class App extends Component {
                             <Route exact path="/company" component={Company}/>
                             <Route path="/company/info/:id" component={CompanyPage}/>
                             <Route exact path="/product" component={Product}/>
-                            <Route path="/product/:id" component={ProductPage}/>
+                            <Route path="/product/info/:id1/:id2" component={ProductPage}/>
                             <Route component={NoMatch} />
                         </Switch>
                     </div>

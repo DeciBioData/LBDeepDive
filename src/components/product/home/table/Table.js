@@ -44,7 +44,7 @@ class Table extends Component {
 				    		partialData.map((data, index) => {
 				    			return (
 							    	<tr key={index}>
-							    		{table.has("Product") ? <th className="text-left"><a href="#" className="companyName">{data.productname}</a></th> : null}
+							    		{table.has("Product") ? <th className="text-left"><a href={`/product/info/${data.uuid}/${data.productid}`} className="companyName">{data.productname}</a></th> : null}
 							    		{table.has('Company') ? <td className="text-left"><a href={`/company/info/${data.uuid}`} rel="noopener noreferrer" className="companyName">{data.companyname}</a></td> : null}
 										{table.has('Status') ? <td className="text-left">{data.status}</td> : null}
 							    		{table.has('Clinical Application') ? <td className="text-left">{data.clinicalapplication}</td> : null}

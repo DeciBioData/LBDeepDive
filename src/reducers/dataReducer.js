@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { FETCH_FEED_COMPANY, UPDATE_FEED_DATA, 
 		FETCH_COMPANY_DATA, UPDATE_COMPANY_DATA, SORT_COMPANY_DATA, FETCH_COMPANY,
-		FETCH_PRODUCT_DATA, UPDATE_PRODUCT_DATA
+		FETCH_PRODUCT_DATA, UPDATE_PRODUCT_DATA, FETCH_PRODUCT
 } from '../actions/types'
 
 const initialState = {
@@ -14,7 +14,8 @@ const initialState = {
 	company_onLoad: true,
 	products: [],
 	processedProducts: [],
-	product_onLoad: true
+	product_onLoad: true,
+	productInfo: {}
 }
 
 export default function(state = initialState, action) {
@@ -59,6 +60,7 @@ export default function(state = initialState, action) {
 				...state,
 				companyInfo: action.payload
 			}
+			break
 		case FETCH_PRODUCT_DATA:
 			return {
 				...state,
@@ -66,11 +68,19 @@ export default function(state = initialState, action) {
 				processedProducts: action.payload,
 				product_onLoad: false
 			}
+			break
 		case UPDATE_PRODUCT_DATA:
 			return {
 				...state,
 				processedProducts: action.payload
 			}
+			break
+		case FETCH_PRODUCT:
+			return {
+				...state,
+				productInfo: action.payload
+			}
+			break
 		default:
 			return state
 			break

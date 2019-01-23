@@ -1,6 +1,6 @@
 import { FETCH_FEED_COMPANY, UPDATE_FEED_DATA, 
         FETCH_COMPANY_DATA, UPDATE_COMPANY_DATA, SORT_COMPANY_DATA, FETCH_COMPANY,
-        FETCH_PRODUCT_DATA, UPDATE_PRODUCT_DATA
+        FETCH_PRODUCT_DATA, UPDATE_PRODUCT_DATA, FETCH_PRODUCT,
 } from './types'
 
 const getScore = (company, rankWeights = {
@@ -341,7 +341,16 @@ export const updateProductData = (products, filters) => dispatch => {
     })
 }
 
-
+export const fetchProduct = (id) => dispatch => {
+  fetch(`https://sheetlabs.com/DECI/lbproducts?productid=${id}`)
+    .then(response => response.json())
+    .then(dataSet => {
+        dispatch({
+          type: FETCH_PRODUCT,
+          payload: dataSet[0]
+       })    
+    })
+}
 
 
 

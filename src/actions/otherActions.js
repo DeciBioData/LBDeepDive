@@ -59,6 +59,11 @@ export const formatDollar = (num) => {
 	return `$${num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`
 }
 
+export const toPercentage = (num) => {
+	num = parseFloat(num)
+	return num * 100 + '%'
+}
+
 export const getLastestTrending = (companies) => {
 	companies.sort((a, b) => new Date(b.date) - new Date(a.date))
 	let latestCompanies = companies.slice(0, 30)

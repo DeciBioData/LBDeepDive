@@ -1,0 +1,7 @@
+.product-biomarkerlist ul {
+	list-style: none;
+}
+
+.product-biomarkerlist ul li {
+	display: inline;
+}
