@@ -8,7 +8,8 @@ import Footer from './components/footer/Footer'
 import Feed from './components/feed/Feed'
 import Company from './components/company/home/Home'
 import CompanyPage from './components/company/individual/Individual'
-import Product from './components/product/Product'
+import Product from './components/product/home/Home'
+import ProductPage from './components/product/individual/Individual'
 import NoMatch from './components/others/NotFoundPage'
 
 class App extends Component {
@@ -24,6 +25,7 @@ class App extends Component {
                             <Route exact path="/company" component={Company}/>
                             <Route path="/company/info/:id" component={CompanyPage}/>
                             <Route exact path="/product" component={Product}/>
+                            <Route path="/product/:id" component={ProductPage}/>
                             <Route component={NoMatch} />
                         </Switch>
                     </div>

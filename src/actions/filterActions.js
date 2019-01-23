@@ -1,6 +1,7 @@
 import { FILTER_FEED_SEARCH, FILTER_FEED_DROPDOWN, FILTER_FEED_DATE, CLEAR_FEED_DROPDOWN,
 		FILTER_COMPANY_NAME, FILTER_COMPANY_DESCRIPTION, FILTER_COMPANY_DROPDOWNOPTIONS, CLEAR_COMPANY_ALL,
-		CLEAR_COMPANY_DROPDOWNOPTIONS, CLEAR_COMPANY_SLIDERS, FILL_COMPANY_COLUMN, FILTER_COMPANY_SLIDERS, CHANGE_RANK_WEIGHTS
+		CLEAR_COMPANY_DROPDOWNOPTIONS, CLEAR_COMPANY_SLIDERS, FILL_COMPANY_COLUMN, FILTER_COMPANY_SLIDERS, CHANGE_RANK_WEIGHTS,
+		FILTER_PRODUCT_NAME, FILTER_PRODUCT_DROPDOWNOPTIONS, FILL_PRODUCT_COLUMN, CLEAR_PRODUCT_DROPDOWNOPTIONS, CLEAR_PRODUCT_ALL
 } from './types'
 
 export const filterFeedSearch = (text) => dispatch => {
@@ -103,7 +104,43 @@ export const changeRankWeights = (type, value) => dispatch => {
 	})
 }
 
+export const filterProductName = (name) => dispatch => {
+	dispatch({
+		type: FILTER_PRODUCT_NAME,
+		payload: name
+	})
+}
 
+export const filterProductDropdownOptions = (type, item) => dispatch => {
+	dispatch({
+		type: FILTER_PRODUCT_DROPDOWNOPTIONS,
+		payload: {
+			type,
+			item
+		}
+	})
+}
+
+export const clearProductDropdownOptions = (type) => dispatch => {
+	dispatch({
+		type: CLEAR_PRODUCT_DROPDOWNOPTIONS,
+		payload: type
+	})
+}
+
+export const clearProductAll = () => dispatch => {
+	dispatch({
+		type: CLEAR_PRODUCT_ALL,
+		payload: null
+	})
+}
+
+export const fillProductColumn = () => dispatch => {
+	dispatch({
+		type: FILL_PRODUCT_COLUMN,
+		payload: null
+	})
+}
 
 
 

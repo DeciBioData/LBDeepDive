@@ -78,7 +78,6 @@ class Pagination extends Component {
 }
 
 const mapStateToProps = state => ({
-	dataLength: state.data.processedCompanies.length,
 	numberOfShowPerPage: state.pagination.numberOfShowPerPage,
 	currentPage: state.pagination.currentPage,
 	lastPage: state.pagination.lastPage

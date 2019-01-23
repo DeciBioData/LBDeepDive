@@ -1,7 +1,8 @@
 /* eslint-disable */
 import { FILTER_FEED_SEARCH, FILTER_FEED_DROPDOWN, FILTER_FEED_DATE, CLEAR_FEED_DROPDOWN,
 		FILTER_COMPANY_NAME, FILTER_COMPANY_DESCRIPTION, FILTER_COMPANY_DROPDOWNOPTIONS, CLEAR_COMPANY_ALL,
-		CLEAR_COMPANY_DROPDOWNOPTIONS, CLEAR_COMPANY_SLIDERS, FILL_COMPANY_COLUMN, FILTER_COMPANY_SLIDERS, CHANGE_RANK_WEIGHTS	
+		CLEAR_COMPANY_DROPDOWNOPTIONS, CLEAR_COMPANY_SLIDERS, FILL_COMPANY_COLUMN, FILTER_COMPANY_SLIDERS, CHANGE_RANK_WEIGHTS,
+		FILTER_PRODUCT_NAME, FILTER_PRODUCT_DROPDOWNOPTIONS, FILL_PRODUCT_COLUMN, CLEAR_PRODUCT_DROPDOWNOPTIONS, CLEAR_PRODUCT_ALL	
 } from '../actions/types'
 
 const initialState = {
@@ -39,7 +40,19 @@ const initialState = {
 		employeeCount: 0,
 		publicationCount: 0,
 		products: 1
-	}
+	},
+	productFilters: {
+	    name: "",
+	    company: [],
+	    indication: [],
+	    clinical: [],
+	    biomarker: [],
+	    analyte:[],
+	    sample: []
+	},
+	productColumns: [
+		"Product","Company", "Status","Clinical Application","Indication", "Technology"
+	]
 }
 
 export default function(state = initialState, action) {
@@ -210,6 +223,82 @@ export default function(state = initialState, action) {
 			return {
 				...state,
 				rankWeights: state.rankWeights
+			}
+			break
+
+		case FILTER_PRODUCT_NAME:
+			state.productFilters.name = action.payload
+			return {
+				...state,
+				productFilters: state.productFilters
+			}
+			break
+		case FILTER_PRODUCT_DROPDOWNOPTIONS:
+			switch(action.payload.type) {
+				case 'productColumn':
+				    let typeIndex = state.productColumns.indexOf(action.payload.item)
+				    if(typeIndex === -1) state.productColumns.push(action.payload.item)
+				    else {
+				      state.productColumns.splice(typeIndex, 1)
+				    }
+				    return {
+				    	...state,
+				    	productColumns: state.productColumns
+				    }
+					break
+				default:
+				    typeIndex = state.productFilters[action.payload.type].indexOf(action.payload.item)
+				    if(typeIndex === -1) state.productFilters[action.payload.type].push(action.payload.item)
+				    else {
+				      state.productFilters[action.payload.type].splice(typeIndex, 1)
+				    }
+					return {
+						...state,
+						productFilters: state.productFilters
+					}
+					break
+			}
+			break
+		case CLEAR_PRODUCT_DROPDOWNOPTIONS:
+			switch(action.payload) {
+				case 'productColumn':
+			    return {
+			    	...state,
+			    		productColumns: [
+							"Product","Company", "Status","Clinical Application","Indication", "Technology"
+						]
+			    }
+					break
+				default:
+					state.productFilters[action.payload] = []
+					return {
+						...state,
+						productFilters: state.productFilters
+					}
+					break
+			}
+			break
+		case CLEAR_PRODUCT_ALL:
+			let { productFilters } = state
+		    productFilters.company = []
+		    productFilters.indication = []
+		    productFilters.clinical = []
+		    productFilters.biomarker = []
+		    productFilters.analyte =[]
+		    productFilters.sample = []
+			return {
+				...state,
+				productFilters: state.productFilters
+			}
+			break
+		case FILL_PRODUCT_COLUMN:
+			return {
+				...state,
+				productColumns: [
+					"(All)","Product","Company","Description","Status","Indication","Clinical Application",
+					"Technology","Analyte","Biomarker Group","Biomarker List","Sample Type","Sensitivity",
+					"Specificity","Sample Volume","TAT","Price","References","Decibio Analysis","Panel Size","Website"
+		    	]
 			}
 			break
 		default:

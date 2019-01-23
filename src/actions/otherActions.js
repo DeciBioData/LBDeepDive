@@ -1,6 +1,52 @@
 import XLSX from 'xlsx'
 import { saveAs } from 'file-saver'
 
+const transformKey = (data) => {
+	return data.map((entry) => {
+		switch(entry) {
+			case "Company Name": return "name"; break
+			case "Description": return "description"; break
+			case "Employee Count": return "employeeCount"; break
+			case "Founded": return "yearOfFound"; break
+			case "Rank": return "rank"; break
+			case "Last Funding": return "yearOfLastFund"; break
+			case "Category": return "categories"; break
+			case "Country": return "country"; break
+			case "Region": return "region"; break
+			case "Status": return "status"; break
+			case "Rounds": return "rounds"; break
+			case "Total Funding": return "totalFunding"; break
+			case "Reported Valuation": return "reportedValuation"; break
+			case "Publication Count": return "publicationCount"; break
+			case "Investor Count": return "investorCount"; break
+			case "Rank Score": return "score"; break
+
+			case "Product": return "productname"; break
+			case "Company": return "companyname"; break
+			case "Description": return "description"; break
+			case "Status": return "status"; break
+			case "Indication": return "indication"; break
+			case "Clinical Application": return "clinicalapplication"; break
+			case "Technology": return "technology"; break
+			case "Analyte": return "analyte"; break
+			case "Biomarker Group": return "biomarkergroup"; break
+			case "Biomarker List": return "biomarkerlist"; break
+			case "Sample Type": return "sampletype"; break
+			case "Sensitivity": return "sensitivity"; break
+			case "Specificity": return "specificity"; break
+			case "Sample Volume": return "samplevolume"; break
+			case "TAT": return "tat"; break
+			case "Price": return "price"; break
+			case "References": return "references"; break
+			case "Decibio Analysis": return "decibioanalysis"; break
+			case "Panel Size": return "panelsize"; break
+			case "Website": return "website"; break
+
+			default: return entry; break
+		}
+	})
+}
+
 export const processedDate = (date) => {
 	return date.toLocaleDateString()
 }
@@ -32,7 +78,8 @@ export const countTypes = (lastestCompanies) => {
 	return map
 }
 
-export const exportExcel = (companies, columns) => {
+export const exportExcel = (data, columns, type) => {
+	console.log(type)
 	let dataSheets = []
 	let titles = []
 
@@ -41,46 +88,10 @@ export const exportExcel = (companies, columns) => {
 	})
 	dataSheets.push(titles)
 
-	companies.forEach((company) => {
+	data.forEach((item) => {
 		let content = []
-		columns.forEach((col) => {
-			let key = ""
-			switch(col) {
-				case "Company Name":
-					key = "name"; break
-				case "Description":
-					key = "description"; break
-				case "Employee Count":
-					key = "employeeCount"; break
-				case "Founded":
-					key = "yearOfFound"; break
-				case "Rank":
-					key = "rank"; break
-				case "Last Funding":
-					key = "yearOfLastFund"; break
-				case "Category":
-					key = "categories"; break
-				case "Country":
-					key = "country"; break
-				case "Region":
-					key = "region"; break
-				case "Status":
-					key = "status"; break
-				case "Rounds":
-					key = "rounds"; break
-				case "Total Funding":
-					key = "totalFunding"; break
-				case "Reported Valuation":
-					key = "reportedValuation"; break
-				case "Publication Count":
-					key = "publicationCount"; break
-				case "Investor Count":
-					key = "investorCount"; break
-				case "Rank Score":
-					key = "score"; break
-				default: break
-			}
-			content.push(company[key])
+		transformKey(columns).forEach((key) => {
+			content.push(item[key])
 		})
 		dataSheets.push(content)
 	})
@@ -88,7 +99,6 @@ export const exportExcel = (companies, columns) => {
 	let wb = XLSX.utils.book_new()
 	wb.SheetNames.push("Test Sheet")
 	let ws_data = dataSheets
-	console.log(dataSheets)
 	var ws = XLSX.utils.aoa_to_sheet(ws_data)
 	wb.Sheets["Test Sheet"] = ws
 	let wbout = XLSX.write(wb, {bookType:'xlsx',  type: 'binary'})
@@ -99,6 +109,6 @@ export const exportExcel = (companies, columns) => {
           for (var i=0; i<s.length; i++) view[i] = s.charCodeAt(i) & 0xFF
           return buf;
     }
-	saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), 'Company Data.xlsx')
+	saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), 'Data.xlsx')
 }
 

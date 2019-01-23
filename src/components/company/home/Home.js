@@ -27,7 +27,7 @@ class Home extends Component {
 					<div className="data-table">
 						<TableInfo />
 						<Table companies={this.props.companies}/>
-						<Pagination />
+						<Pagination dataLength={this.props.companies.length}/>
 					</div>
 				</div>
 			</div>
