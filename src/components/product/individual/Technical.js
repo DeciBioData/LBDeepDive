@@ -47,11 +47,11 @@ const Technical = ({productInfo}) => {
 				<div className="description-body product-biomarkerlist">
 					<ul>
 					{
-						productInfo.biomarkerlist.split(',').map((item, index) => {
+						productInfo.biomarkerlist ? productInfo.biomarkerlist.split(',').map((item, index) => {
 							return (
 								<li key={index}>{item}{index === productInfo.biomarkerlist.split(',').length - 1 ? '' : ', '}</li>
 							)
-						})
+						}) : null
 					}
 					</ul>
 				</div>
