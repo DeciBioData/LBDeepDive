@@ -9,26 +9,45 @@ const FeedSummary = ({ data }) => {
 	return (
 		<div>
 			<div className="feedSummary-typeRank">
-				<h6 className="feedSummary-title"><strong>Feed Summary</strong></h6>
+				<h6 className="feedSummary-title"><strong>Summary</strong></h6>
 				<div className="feedSummary-types">
 			        <HorizontalBar
+							height={270}
 			          data={
 			          	{
 				          	labels: typeList,
 					        datasets:[
 					          {
 					            data: Array.from(countTypes(data).values()),
-					            backgroundColor: 'blue'
+					            backgroundColor: 'rgba(44, 130, 201, 1)',
+      								borderColor: 'rgba(107, 185, 240, 1)',
+      								borderWidth: 1,
+      								hoverBackgroundColor: 'rgba(34, 167, 240, 1)',
+      								hoverBorderColor: 'rgba(34, 167, 240, 1)'
 					          }
 					        ]
 			            }
 			      	  }
 			          options={{
-			            legend:{ display: false }
+									legend:{ display: false },
+									scales: {
+										xAxes: [{
+												gridLines: {
+														color: "rgba(0, 0, 0, 0)",
+												}
+										}],
+										yAxes: [{
+												gridLines: {
+														color: "rgba(0, 0, 0, 0)",
+														display: false
+												}   
+										}]
+								}
 			          }}
 			        />
 				</div>
 			</div>
+			<div><br></br></div>
 			<div className="feedSummary-trendingCompany">
 				<h6 className="feedSummary-title"><strong>Trending Companies</strong></h6>
 				<div className="feedSummary-companyLogos">
@@ -36,7 +55,7 @@ const FeedSummary = ({ data }) => {
 					{
 						companyList.map((logo, index) => {
 							return (
-								<li key={index}><img src={logo} width="75" className="d-inline-block align-top logo-img"/></li>
+								<li key={index}><img src={logo} width="65" className="d-inline-block align-top logo-img"/></li>
 							)
 						})
 					}

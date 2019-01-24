@@ -3,7 +3,7 @@ import { processedDate } from '../../actions/otherActions'
 
 const FeedCard = ({ companyInfo }) => {
 	return (
-		<div className="card with-shadow">
+		<div className="card">
 			<div className="card-body">
 				<h5 className="card-title feed-title"><strong>{ companyInfo.title }</strong></h5>
 				<div className="feed-type">{ companyInfo.type } | { processedDate(companyInfo.date) }</div>
