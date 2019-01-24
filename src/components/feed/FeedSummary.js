@@ -55,7 +55,7 @@ const FeedSummary = ({ data }) => {
 					{
 						companyList.map((logo, index) => {
 							return (
-								<li key={index}><img src={logo} width="65" className="d-inline-block align-top logo-img"/></li>
+								<li key={index}><img src={logo}  height="35"  className="d-inline-block align-top logo-img"/></li>
 							)
 						})
 					}
