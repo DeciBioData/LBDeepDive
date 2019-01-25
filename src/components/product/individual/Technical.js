@@ -51,7 +51,7 @@ const Technical = ({productInfo}) => {
 							return (
 								<li key={index}>{item}{index === productInfo.biomarkerlist.split(',').length - 1 ? '' : ', '}</li>
 							)
-						}) : null
+						}) : <span>(No content)</span>
 					}
 					</ul>
 				</div>

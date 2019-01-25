@@ -14,31 +14,31 @@ const Overview = ({productInfo}) => {
 			<div className="row">
 				<div className="col-6 col-md-6 col-sm-6">
 					<span className="customize-h3">Indication Focus</span>
-					<p>{productInfo.indication}</p>
+					<p>{productInfo.indication ? productInfo.indication : <span>(No content)</span>}</p>
 				</div>
 				<div className="col-6 col-md-6 col-sm-6">
 					<span className="customize-h3">Clinical Application</span>
-					<p>{productInfo.clinicalapplication}</p>
+					<p>{productInfo.clinicalapplication ? productInfo.clinicalapplication : <span>(No content)</span>}</p>
 				</div>
 			</div>
 			<div className="row">
 				<div className="col-6 col-md-6 col-sm-6">
 					<span className="customize-h3">Technology</span>
-					<p>{productInfo.technology}</p>
+					<p>{productInfo.technology ? productInfo.technology : <span>(No content)</span>}</p>
 				</div>
 				<div className="col-6 col-md-6 col-sm-6">
 					<span className="customize-h3">Analyte</span>
-					<p>{productInfo.analyte}</p>
+					<p>{productInfo.analyte ? productInfo.analyte : <span>(No content)</span>}</p>
 				</div>
 			</div>
 			<div className="row">
 				<div className="col-6 col-md-6 col-sm-6">
 					<span className="customize-h3">Biomarker Group</span>
-					<p>{productInfo.biomarkergroup}</p>
+					<p>{productInfo.biomarkergroup ? productInfo.biomarkergroup : <span>(No content)</span>}</p>
 				</div>
 				<div className="col-6 col-md-6 col-sm-6">
 					<span className="customize-h3">Sample Type</span>
-					<p>{productInfo.sampletype}</p>
+					<p>{productInfo.sampletype ? productInfo.sampletype : <span>(No content)</span>}</p>
 				</div>
 			</div>
 		</div>

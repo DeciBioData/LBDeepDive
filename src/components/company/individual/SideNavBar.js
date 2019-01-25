@@ -34,6 +34,7 @@ const SideNavBar = ({companyInfo}) => {
 				  <a href={`/company/info/${companyInfo.id}/funding`} className="list-group-item list-group-item-action border-0">Funding</a>
 				  <a href={`/company/info/${companyInfo.id}/team`} className="list-group-item list-group-item-action border-0">Team</a>
 				  <a href={`/company/info/${companyInfo.id}/publication`} className="list-group-item list-group-item-action border-0">Publications</a>
+				  <a href={`/company/info/${companyInfo.id}/product`} className="list-group-item list-group-item-action border-0">Products</a>
 				</div>
 			</div>
 		</div>

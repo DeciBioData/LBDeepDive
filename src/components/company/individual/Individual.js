@@ -1,23 +1,25 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux"
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom"
-import { fetchCompany } from "../../../actions/dataActions"
+import { fetchCompany, fetchProductData } from "../../../actions/dataActions"
 
 import SideNavBar from './SideNavBar'
 import Description from './Description'
 import Funding from './Funding'
 import Team from './Team'
 import Publication from './Publication'
+import Product from './Product'
 import LoadingSpinner from '../../others/LoadingSpinner'
 
 class Company extends Component {
 
 	componentDidMount() {
 		this.props.fetchCompany(this.props.match.params.id)	
+		this.props.fetchProductData()
 	}
 
 	render() {
-		const { companyInfo } = this.props
+		const { companyInfo, products } = this.props
 
 		function isEmpty(obj) {
 		    for(var prop in obj) {
@@ -41,7 +43,8 @@ class Company extends Component {
 									<Route exact path={`${this.props.match.url}`} render={(props) => <Description companyInfo={companyInfo} {...props}/>}/>
 									<Route exact path={`${this.props.match.url}/funding`} render={(props) => <Funding companyInfo={companyInfo} {...props}/>}/>
 									<Route exact path={`${this.props.match.url}/team`} render={(props) => <Team companyInfo={companyInfo} {...props}/>}/>
-									<Route exact path={`${this.props.match.url}/publication`} render={(props) => <Publication companyInfo={companyInfo} {...props}/>}/>	
+									<Route exact path={`${this.props.match.url}/publication`} render={(props) => <Publication companyInfo={companyInfo} {...props}/>}/>
+									<Route exact path={`${this.props.match.url}/product`} render={(props) => <Product uuid={companyInfo.id} products={products} {...props}/>}/>	
 							</Switch>
 						</div>
 					</div>
@@ -52,7 +55,8 @@ class Company extends Component {
 }
 
 const mapStateToProps = state => ({
-	companyInfo: state.data.companyInfo
+	companyInfo: state.data.companyInfo,
+	products: state.data.products
 })
 
-export default connect(mapStateToProps, { fetchCompany })(Company)
+export default connect(mapStateToProps, { fetchCompany, fetchProductData })(Company)
