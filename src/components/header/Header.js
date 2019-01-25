@@ -6,8 +6,30 @@ import Navbar from './Navbar'
 
 class Header extends Component {
 
+	constructor(props) {
+		super(props)
+		this.state = {
+			authenticated: null
+		}
+	}
+
 	async signOut() {
 		this.props.auth.logout('/');
+	}
+
+	async checkAuthentication() {
+		const authenticated = await this.props.auth.isAuthenticated();
+		if (authenticated !== this.state.authenticated) {
+		  this.setState({ authenticated })
+		}
+	}
+
+	componentDidMount() {
+		this.checkAuthentication()
+	}
+
+	componentDidUpdate() {
+		this.checkAuthentication()
 	}
 
 	render() {
@@ -26,7 +48,7 @@ class Header extends Component {
 						<h5><strong>DeciBio BioTrack</strong> | Liquid Biopsy</h5>
 					</div>
 				  	<div>
-				  		<SignOutButton signOut={this.signOut.bind(this)}/>
+				  		{ this.state.authenticated ? <SignOutButton signOut={this.signOut.bind(this)}/> : null }
 				  	</div>
 				  </div>
 				</nav>
