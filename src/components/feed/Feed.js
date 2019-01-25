@@ -27,8 +27,8 @@ class Feed extends Component {
 		if(this.props.onLoad) return <div className="spinner"><LoadingSpinner /></div>
 		return (
 			<div>
-				<div className="feedContentTop ">
-				<nav className="navbar navbar-expand-lg navbar-light bg-light  ">
+				<div className="feedContentTop">
+				<nav className="navbar navbar-expand-lg navbar-light bg-light">
 				    <ul className="navbar-nav mr-auto">
 				    	<li className="nav-item dropdown">
 					        <DropdownFilter name="Company" data={this.props.processedCompanies} type="companyid"/>
