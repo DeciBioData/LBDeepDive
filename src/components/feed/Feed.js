@@ -27,7 +27,8 @@ class Feed extends Component {
 		if(this.props.onLoad) return <div className="spinner"><LoadingSpinner /></div>
 		return (
 			<div>
-				<nav className="navbar navbar-expand-lg navbar-light bg-light with-shadow feedFilters">
+				<div className="feedContentTop ">
+				<nav className="navbar navbar-expand-lg navbar-light bg-light  ">
 				    <ul className="navbar-nav mr-auto">
 				    	<li className="nav-item dropdown">
 					        <DropdownFilter name="Company" data={this.props.processedCompanies} type="companyid"/>
@@ -42,18 +43,21 @@ class Feed extends Component {
 				    <form className="form-inline my-2 my-lg-0">
 				      <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" onChange={this.handleSearch.bind(this)}/>
 				    </form>
-				</nav>
+				</nav></div>
 				<div className="feedContent row">
+				
+				<div className="feedSummary  col-4 col-md-4 col-sm-4">
+					
+						<FeedSummary data={this.props.processedCompanies}/>
+					</div>
 					<div className="feedCards col-7 col-md-7 col-sm-7">
-						{
+											{
 							this.props.processedCompanies.map((company, index) => {
 								return (<div key={index}><FeedCard companyInfo={company}/></div>)
 							})
 						}
 					</div>
-					<div className="feedSummary with-shadow col-4 col-md-4 col-sm-4">
-						<FeedSummary data={this.props.processedCompanies}/>
-					</div>
+					
 				</div>
 			</div>
 		)
