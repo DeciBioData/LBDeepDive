@@ -213,7 +213,7 @@ export const sortCompanyData = (companies, rankWeights) => dispatch => {
 
 export const fetchCompany = (id) => dispatch => {
   const apiPath = 'https://api.crunchbase.com/v3.1/organizations'
-  const apiKey = '50a32d84dbc41c930267958491d132c4'
+  const apiKey = `${process.env.REACT_APP_CRUNCHBASE_API_KEY}`
   fetch(`${apiPath}/${id}?user_key=${apiKey}`)
    .then(response => response.json())
    .then(dataSet => {
