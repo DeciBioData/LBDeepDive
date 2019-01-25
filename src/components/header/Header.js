@@ -1,13 +1,13 @@
 /* eslint-disable */
 import React, { Component } from 'react'
-
+import { withAuth } from '@okta/okta-react'
 import SignOutButton from './SignOutButton'
 import Navbar from './Navbar'
 
 class Header extends Component {
 
 	async signOut() {
-		//this.props.auth.logout('/');
+		this.props.auth.logout('/');
 	}
 
 	render() {
@@ -36,4 +36,4 @@ class Header extends Component {
 	}
 }
 
-export default Header
+export default withAuth(Header)

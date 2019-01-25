@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@okta/okta-react": "^1.1.4",
+    "@okta/okta-signin-widget": "^2.15.0",
     "chart.js": "^2.7.3",
     "file-saver": "^2.0.0",
     "nouislider-react": "^2.1.1",
