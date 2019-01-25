@@ -172,6 +172,7 @@ export default function(state = initialState, action) {
 			filters.category = []
 			filters.status = []
 			filters.country = []
+			filters.diseases = []
 			filters.totalFunding = [0, 3000000000]
 			filters.rounds = [0, 20]
 			filters.reportedValuation = [0, 10000000000]
