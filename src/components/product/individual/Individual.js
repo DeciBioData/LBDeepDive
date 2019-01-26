@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux"
-import { BrowserRouter as Router, Route, Switch} from "react-router-dom"
+import { BrowserRouter as Router, Route, Switch, withRouter } from "react-router-dom"
 import { fetchCompany, fetchProduct } from "../../../actions/dataActions"
 
 import Overview from "./Overview"
@@ -54,4 +54,4 @@ const mapStateToProps = state => ({
 	productInfo: state.data.productInfo
 })
 
-export default connect(mapStateToProps, { fetchCompany, fetchProduct })(Individual)
+export default connect(mapStateToProps, { fetchCompany, fetchProduct })(withRouter(Individual))

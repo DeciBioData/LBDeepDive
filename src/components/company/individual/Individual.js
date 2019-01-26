@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux"
-import { BrowserRouter as Router, Route, Switch} from "react-router-dom"
+import { Route, Switch, withRouter } from "react-router-dom"
 import { fetchCompany, fetchProductData } from "../../../actions/dataActions"
 
 import SideNavBar from './SideNavBar'
@@ -59,4 +59,4 @@ const mapStateToProps = state => ({
 	products: state.data.products
 })
 
-export default connect(mapStateToProps, { fetchCompany, fetchProductData })(Company)
+export default connect(mapStateToProps, { fetchCompany, fetchProductData })(withRouter(Company))

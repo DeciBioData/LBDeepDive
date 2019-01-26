@@ -56,6 +56,7 @@ class Auth {
   }
 
   signOut() {
+    // clear id token, profile, and expiration
     this.auth0.logout({
       returnTo: 'http://localhost:3000',
       clientID: 'dhGoPCGbk9Ys9KhvJsgFbPjiNfOHGTM5',
