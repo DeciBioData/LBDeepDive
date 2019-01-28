@@ -6,7 +6,7 @@ class Auth {
       // the following three lines MUST be updated
       domain: 'decibio.auth0.com',
       audience: 'https://decibio.auth0.com/userinfo',
-      clientID: 'dhGoPCGbk9Ys9KhvJsgFbPjiNfOHGTM5',
+      clientID: '6trN1GcKqgugvWvDLW040G9FkAfElQBP',
       redirectUri: 'https://biotrack-liquid-biopsy.herokuapp.com/callback',
       responseType: 'id_token',
       scope: 'openid profile'
@@ -59,7 +59,7 @@ class Auth {
     // clear id token, profile, and expiration
     this.auth0.logout({
       returnTo: 'https://biotrack-liquid-biopsy.herokuapp.com',
-      clientID: 'dhGoPCGbk9Ys9KhvJsgFbPjiNfOHGTM5',
+      clientID: '6trN1GcKqgugvWvDLW040G9FkAfElQBP',
     });
   }
 
