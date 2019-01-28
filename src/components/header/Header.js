@@ -1,20 +1,11 @@
 /* eslint-disable */
 import React, { Component } from 'react'
-import { withAuth } from '@okta/okta-react'
 import { withRouter } from 'react-router-dom'
 import auth0Client from '../auth/Auth'
 import Navbar from './Navbar'
 import SignOutButton from './SignOutButton'
 
 class Header extends Component {
-
-	constructor(props) {
-		super(props)
-		this.state = {
-			authenticated: null
-		}
-	}
-
 	signOut() {
 		auth0Client.signOut();
 		this.props.history.replace('/');
