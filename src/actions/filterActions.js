@@ -43,7 +43,6 @@ export const filterFeedDate = (dateRange) => dispatch => {
 			mixpanel: {
 			  event: 'Date Feed',
 			  props: {
-			  	type,
 			  	range: dateRange
 			  }
 			}
