@@ -8,6 +8,7 @@
     "auth0-js": "^9.9.1",
     "chart.js": "^2.7.3",
     "file-saver": "^2.0.0",
+    "mixpanel-browser": "^2.26.0",
     "nouislider-react": "^2.1.1",
     "react": "^16.7.0",
     "react-chartjs-2": "^2.7.4",
@@ -20,6 +21,7 @@
     "react-spinkit": "^3.0.0",
     "reactstrap": "^7.1.0",
     "redux": "^4.0.1",
+    "redux-mixpanel-middleware": "^1.0.1",
     "redux-thunk": "^2.3.0",
     "xlsx": "^0.14.1"
   },

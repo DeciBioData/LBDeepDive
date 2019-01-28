@@ -7,21 +7,47 @@ import { FILTER_FEED_SEARCH, FILTER_FEED_DROPDOWN, FILTER_FEED_DATE, CLEAR_FEED_
 export const filterFeedSearch = (text) => dispatch => {
 	dispatch({
 		type: FILTER_FEED_SEARCH,
-		payload: text
+		payload: text,
+		meta: {
+			mixpanel: {
+			  event: 'Search Feed',
+			  props: {
+			  	input: text
+			  }
+			}
+		}
 	})
 }
 
 export const filterFeedDropdown = (type, item) => dispatch => {
 	dispatch({
 		type: FILTER_FEED_DROPDOWN,
-		payload: { type, item }
+		payload: { type, item },
+		meta: {
+			mixpanel: {
+			  event: 'Dropdown Feed',
+			  props: {
+			  	type,
+			  	tags: item
+			  }
+			}
+		}
 	})
 }
 
 export const filterFeedDate = (dateRange) => dispatch => {
 	dispatch({
 		type: FILTER_FEED_DATE,
-		payload: dateRange
+		payload: dateRange,
+		meta: {
+			mixpanel: {
+			  event: 'Date Feed',
+			  props: {
+			  	type,
+			  	range: dateRange
+			  }
+			}
+		}
 	})
 }
 
@@ -35,14 +61,30 @@ export const clearFeedDropdown = (type) => dispatch => {
 export const filterCompanyName = (name) => dispatch => {
 	dispatch({
 		type: FILTER_COMPANY_NAME,
-		payload: name
+		payload: name,
+		meta: {
+			mixpanel: {
+			  event: 'Search company',
+			  props: {
+			  	input: name
+			  }
+			}
+		}
 	})
 }
 
 export const filterCompanyDescription = (description) => dispatch => {
 	dispatch({
 		type: FILTER_COMPANY_DESCRIPTION,
-		payload: description
+		payload: description,
+		meta: {
+			mixpanel: {
+			  event: 'Search company description',
+			  props: {
+			  	input: description
+			  }
+			}
+		}
 	})
 }
 
@@ -52,6 +94,15 @@ export const filterCompanyDropdownOptions = (type, item) => dispatch => {
 		payload: {
 			type,
 			item
+		},
+		meta: {
+			mixpanel: {
+			  event: 'Dropdown company',
+			  props: {
+			  	type,
+			  	tags: item
+			  }
+			}
 		}
 	})
 }
@@ -90,6 +141,15 @@ export const filterCompanySliders = (type, newRange) => dispatch => {
 		payload: {
 			type,
 			newRange
+		},
+		meta: {
+			mixpanel: {
+			  event: 'Slider company',
+			  props: {
+			  	type,
+			  	range: newRange
+			  }
+			}
 		}
 	})
 }
@@ -100,6 +160,15 @@ export const changeRankWeights = (type, value) => dispatch => {
 		payload: {
 			type,
 			value
+		},
+		meta: {
+			mixpanel: {
+			  event: 'Change Rank Weight',
+			  props: {
+			  	type,
+			  	value
+			  }
+			}
 		}
 	})
 }
@@ -107,7 +176,15 @@ export const changeRankWeights = (type, value) => dispatch => {
 export const filterProductName = (name) => dispatch => {
 	dispatch({
 		type: FILTER_PRODUCT_NAME,
-		payload: name
+		payload: name,
+		meta: {
+			mixpanel: {
+			  event: 'Search Product',
+			  props: {
+			  	input: name
+			  }
+			}
+		}
 	})
 }
 
@@ -117,6 +194,15 @@ export const filterProductDropdownOptions = (type, item) => dispatch => {
 		payload: {
 			type,
 			item
+		},
+		meta: {
+			mixpanel: {
+			  event: 'Dropdown Product',
+			  props: {
+			  	type,
+			  	tags: item
+			  }
+			}
 		}
 	})
 }

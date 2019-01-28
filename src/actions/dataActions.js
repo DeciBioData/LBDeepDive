@@ -251,7 +251,16 @@ export const fetchCompany = (id) => dispatch => {
 
         dispatch({
           type: FETCH_COMPANY,
-          payload: companyInfo
+          payload: companyInfo,
+          meta: {
+            mixpanel: {
+              event: 'Click Company',
+              props: {
+                id: companyInfo.id,
+                name: companyInfo.name
+              }
+            }
+          }
        })    
     })
 }
@@ -347,7 +356,16 @@ export const fetchProduct = (id) => dispatch => {
     .then(dataSet => {
         dispatch({
           type: FETCH_PRODUCT,
-          payload: dataSet[0]
+          payload: dataSet[0],
+          meta: {
+            mixpanel: {
+              event: 'Click Product',
+              props: {
+                id: dataSet[0].productid,
+                name: dataSet[0].productname
+              }
+            }
+          }
        })    
     })
 }
