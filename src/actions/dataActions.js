@@ -149,7 +149,7 @@ export const fetchCompanyData = () => dispatch => {
 export const updateCompanyData = (companies, filters) => dispatch => {
 
     const matchPrefix = (prefix, str) => {
-      if(!prefix.match(/^[a-zA-Z]+$/) && !prefix.match(/^[0-9]+$/)) return false
+      if(!prefix.match(/^[a-zA-Z0-9\s]+$/)) return false
       prefix = prefix.toLowerCase()
       str = str.toLowerCase()
 
@@ -294,7 +294,7 @@ export const fetchProductData = () => dispatch => {
 
 export const updateProductData = (products, filters) => dispatch => {
     const matchPrefix = (prefix, str) => {
-      if(!prefix.match(/^[a-zA-Z]+$/) && !prefix.match(/^[0-9]+$/)) return false
+      if(!prefix.match(/^[a-zA-Z0-9\s]+$/)) return false
       prefix = prefix.toLowerCase()
       str = str.toLowerCase()
 
