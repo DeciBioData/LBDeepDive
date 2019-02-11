@@ -44,6 +44,7 @@ input:focus {outline: 0;}
 .fixHeight {
 	height: auto;
 	overflow: auto;
+	margin-bottom: 100px;
 }
 
 .form-control:focus {
@@ -180,8 +181,9 @@ input:focus {outline: 0;}
 =====================*/
 .dropdown-menu {
 	height: 200px;
-	width: 300px;
+	width: 100%;
 	overflow: auto;
+	position: relative;
 }
 
 .dropdown-item {
